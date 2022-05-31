@@ -2,7 +2,8 @@
 
 ## Learning Goals
 
-- Understand the steps needed to complete an assignment and submit it in Canvas
+- Install and configure the `learn-lab` gem.
+- Understand the steps needed to complete an assignment and submit it in Canvas.
 
 ## Introduction
 
@@ -15,14 +16,16 @@ your first assignment!
 All assignments are hosted on GitHub. In order to work on them, however, you
 will need to complete work on your local machine. The general process is:
 
-- Go to the assignment's GitHub page
-- Create a personal copy (a 'fork') of the assignment
-- Download your personal copy (referred to as 'cloning') to your environment
-- Complete the required work
-- Upload the work you've done to your personal copy of the assignment on GitHub
+- Go to the assignment's GitHub page.
+- Create a personal copy (a _fork_) of the assignment.
+- Download your personal copy (referred to as _cloning_) to your environment.
+- Complete the required work (including passing any tests).
+- Upload the work you've done to your personal copy of the assignment on GitHub.
+- Submit the assignment in Canvas.
 
-For this assignment, we'll do a quick walkthrough of these steps so you will
-know what to do in future assignments.
+For this assignment, we'll get you set up to complete and submit your
+assignments. We'll also do a quick walkthrough of the steps so you will know
+what to do in future assignments.
 
 ### A Quick Note on Organizing Work on Your Machine
 
@@ -31,12 +34,12 @@ important to take a moment now to think about how you'll organize this work on
 your computer. You are welcome to do what you like, but we recommend setting up
 a directory where you can keep all of your work for this course.
 
-- Go to your terminal and navigate to your home directory by typing `cd ~`
+- Go to your terminal and navigate to your home directory by typing `cd ~`.
 - Create a `Development` folder by typing `mkdir Development` (if you're a mac
-  user, this folder already exists)
-- Navigate into this folder with `cd Development`
-- In here, create a `code` folder with `mkdir code`
-- Navigate into this folder with `cd code`
+  user, this folder already exists).
+- Navigate into this folder with `cd Development`.
+- In here, create a `code` folder with `mkdir code`.
+- Navigate into this folder with `cd code`.
 
 You'll be going through multiple phases in this course, so it may also be
 helpful to go one step further and create folders for phases 0 through 5 within
@@ -51,7 +54,43 @@ computer's folders clear of random code.
 > your main `code` folder (`cd ~/Development/code`) to ensure these sub-folders
 > don't get created _within each other_.
 
-### Accessing GitHub and Forking
+## The `learn-lab` Gem
+
+One of the tools you'll be using to submit your assignments is the `learn-lab`
+gem. This gem will do two things for you:
+
+1. Run the assignment's tests, and
+2. Verify that you got all the tests to pass.
+
+**Important**: The command you will need to use throughout the course to run the
+tests is `learn-lab test`. In the course materials, you may instead see
+instructions to run `learn test` or `learn`. These commands are used with a
+_different_ gem so they will not work. You may also see instructions to run
+either `npm test` (for JavaScript and React labs) or `rspec` (for Ruby and Rails
+labs). While these commands will correctly run the tests, they will not print
+out the token you need to verify that you passed all the tests.
+
+**Be sure to disregard any other instructions you encounter and use
+`learn-lab test` to run the tests.**
+
+## Install and Configure the `learn-lab` Gem
+
+**Note:** The instructions here assume you've successfully installed Ruby and
+Node in the previous environment setup instructions.
+
+To install the gem, run the following in your terminal:
+
+```console
+$ gem install learn-lab
+```
+
+To configure the gem, do the following:
+
+1. Open your terminal.
+2. In your terminal run `learn-lab config`.
+3. Enter the same email you used for your Canvas login.
+
+## Forking and Cloning Assignments
 
 All the lessons in this course have a corresponding repository in GitHub. On
 this page in Canvas, you should see three icons in the **upper right** corner.
@@ -63,13 +102,9 @@ for the lesson (e.g., if you find a typo or other error).
 One way to fork an assignment is to click the Octocat button to go to the
 assignment's GitHub repo and fork directly from that page. (We'll go through
 that process in a later lesson.) However, the easiest way to fork the assignment
-is by clicking the **Fork** button. Either method will work, but we recommend
-you use the **Fork** button because it will automate some assignment steps for
-you when you get a bit farther along in the curriculum.
+is by clicking the **Fork** button at the top of the page. It looks like this:
 
 ![fork link](https://curriculum-content.s3.amazonaws.com/fork-link.png)
-
-This is just a picture, the button is up at the top of the page
 
 Clicking the **Fork** button will do one of two things — it will either start
 the forking process or bring you to a page where you select where to create your
@@ -111,11 +146,12 @@ From here, click the copy button.
 ![clone-repo](https://curriculum-content.s3.amazonaws.com/phase-0/completing-assignments/clone-repo.gif)
 
 Now, open your terminal and navigate to where you'd like to download the
-assignment (e.g. `cd ~/Development/code`). Type `git clone` and a space, then
-paste in the copied SSH link from GitHub. It should look something like this:
+assignment (e.g. `cd ~/Development/code/phase-0`). Type `git clone` and a space,
+then paste in the copied SSH link from GitHub. It should look something like
+this:
 
 ```console
-$ git clone git@github.com:<your-user-name>/phase-0-completing-assignments-no-gem.git
+$ git clone git@github.com:<your-user-name>/phase-0-completing-assignments-learn-lab-gem.git
 ```
 
 Press enter, and you should see a flurry of terminal activity. Once the terminal
@@ -124,7 +160,7 @@ assignment will be present. Change directory into this folder to access the
 assignment files.
 
 ```console
-$ cd phase-0-completing-assignments-no-gem
+$ cd phase-0-completing-assignments-learn-lab-gem
 ```
 
 Now, if you've set up VS Code, type `code .` to open up a text editor window
@@ -139,38 +175,23 @@ feedback in the terminal. We'll walk through some examples in upcoming lessons.
 This assignment has a single test: check to see if you've correctly cloned this
 assignment to your local machine. If you've followed the steps above, you've
 completed everything you need to do to pass the test; all that is left to do is
-run it.
-
-To run an assignment's tests, first you'll need to set up the tools used to run
-the test. Fortunately, all the tools required are included as part of the
-assignment, so all you need to do is type the following:
+run it:
 
 ```console
-$ npm install
+$ learn-lab test
 ```
 
-This command will again cause a flurry of activity in your terminal. You may see
-some warnings in the mix of output, but that is normal. After a few moments, you
-should see some messaging about packages being added and regain control of the
-command line. You're now ready to run this assignment's tests. Type the
-following to do so:
+You should see the following:
 
-```console
-$ npm test
-```
+![test passing message and token](https://curriculum-content.s3.amazonaws.com/phase-0/enterprise/configuring-the-learn-lab-gem/test-passing.png)
 
-You should see the test results print out. For this assignment, they'll look
-like this:
-
-    This assignment    ✓ has been correctly cloned to your local environment  1 passing (5ms)
-
-Congratulations! You've passed this assignment's test.
-
-> **Note:** If you did not receive a passing test, or if your terminal produced
-> some sort of error, walk through the steps in this lesson again and make sure
-> you've followed each one. If you're still receiving errors, we recommend going
-> back through the local environment setup instructions again to ensure
-> everything is set up properly.
+Note that, by cloning this assignment down, you've already passed the test! The
+other thing to notice in the screenshot above is that, once all the tests are
+passing (in this case it's just the one), you will also see a token printed in
+the test output. This token indicates that you have successfully passed all the
+tests for the lab. The next step is to upload your completed assignment to
+GitHub. Be sure to leave the terminal window open because you will need to copy
+and paste the token in Canvas in order to submit your assignment.
 
 ## Uploading Your Work to GitHub
 
@@ -211,18 +232,16 @@ assignment.
 
 Each assignment will be slightly different and will include instructions on what
 is required to complete it. Depending on the testing tools in an assignment, the
-specific commands may change. For this lesson, we ran `npm install` and
-`npm test`: `npm install` to set up the necessary tools, and `npm test` to run
-the actual test.
+specific commands may change. For JavaScript and React labs, you will need to
+run `npm install` to set up the necessary tools before running the tests. For
+Ruby and Rails labs, the corresponding command is `bundle`.
 
-You'll also see some assignments that ask you to run `bundle` and `rspec` —
-`bundle`, like `npm install`, will set up necessary tools and `rspec` will run
-the tests. We'll include instructions indicating which commands to run. In all
-cases, you can run the tests as many times as you would like. Some labs will
+Each lab will include instructions indicating which command to run. In any case,
+you can run `learn-lab test` as many times as you would like. Some labs will
 have many tests and may require running the tests many times while you solve
 them.
 
-## Uploading Your Work To Canvas
+## Submitting Your Work To Canvas
 
 To register completion of an assignment in Canvas, you must submit a link to
 your GitHub repository.
@@ -235,7 +254,16 @@ your GitHub repository.
    button. You'll be directed to the bottom of the page, where you can provide a
    URL as your submission.
 
-3. Paste in your repository's GitHub URL and click **Submit**.
+3. Paste in your repository's GitHub URL
+
+4. Go back to your terminal and select the entire token and copy it (using
+   ctrl-C or cmd-C), then paste it in the "Comments" box in Canvas.
+
+5. Click **Submit Assignment**.
+
+It should look something like this:
+
+![submit repo url and token](https://curriculum-content.s3.amazonaws.com/phase-0/enterprise/configuring-the-learn-lab-gem/submit-assignment.png)
 
 Canvas will indicate a successful submission and refresh the page. In the
 Modules view of your course, you should now see a checkmark next to the
@@ -254,40 +282,47 @@ Let's quickly review the process for completing assignments:
    info.
 
 3. Go to your local environment's terminal and navigate to where you'd like to
-   store your assignment locally.
+   store your assignment locally. Remember to make sure you aren't inside the
+   directory for another assignment.
 
 4. Type `git clone`, then paste in what you copied from GitHub. This will create
    a copy on your local machine.
 
-5. Navigate into the new cloned assignment and complete any work required
+5. Navigate into the new cloned assignment and complete any work required.
 
 6. Install testing tools with `npm install` (or `bundle` if tests use Ruby)
 
-7. Run tests with `npm test` (or `rspec` for Ruby)
+7. Run tests with `learn-lab test`.
 
 8. If all tests are passing, stage and commit your solution with the following
-   commands
+   commands:
 
 ```console
 $ git add .
 $ git commit -m 'Done with assignment'
 ```
 
-9. Push your work to your personal fork on GitHub with the `git push` command
+9. Push your work to your personal fork on GitHub with the `git push` command.
 
 10. Go to your repository in GitHub and copy the URL. Note, this should be
     copied from the browser's address bar, and should start with
     `https://github.com/`
 
 11. Go to the assignment in Canvas and click **Submit Assignment** (or **Start
-    Assignment**)
+    Assignment**).
 
-12. Paste in your GitHub URL as your submission
+12. Paste in your GitHub URL as your submission.
+
+13. Go back to the terminal and copy the token, then paste it in the "Comments"
+    box in Canvas.
+
+14. Click "Submit Assignment".
 
 ## Conclusion
 
 Congratulations! You've completed your first assignment! You now know how to
-work on and submit assignments. We'll remind you of this process in upcoming
-lessons, but we recommend bookmarking this lesson so you can refer back here in
-case you forget. Equipped with this knowledge, you are now ready to tackle
-greater challenges!
+work on and submit assignments. Don't worry if this feels a little overwhelming
+right now — soon enough you'll internalize these steps and won't even need to
+think about it. In the meantime, we recommend bookmarking this lesson so you can
+refer back here in case you forget. Equipped with this knowledge, you are now
+ready to tackle greater challenges!
