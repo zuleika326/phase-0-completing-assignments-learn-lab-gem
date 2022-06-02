@@ -280,7 +280,7 @@ you get all the tests passing. Let's do that now:
 
 5. Click **Submit Assignment**.
 
-The form you're submiting should look something like this:
+The form you're submitting should look something like this:
 
 ![submit repo url and token](https://curriculum-content.s3.amazonaws.com/phase-0/enterprise/configuring-the-learn-lab-gem/submit-assignment.png)
 
