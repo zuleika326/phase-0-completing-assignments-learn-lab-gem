@@ -221,7 +221,7 @@ $ git add .
 ```
 
 By typing this command, you're indicating that any work you've done (i.e., all
-changes you've amde to any of the files in your local copy of an assignment)
+changes you've made to any of the files in your local copy of an assignment)
 should be saved in the next step.
 
 **Step 2**: To actually _save_ the changes, we run the following, then press
